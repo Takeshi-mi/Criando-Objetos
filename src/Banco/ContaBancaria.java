@@ -13,12 +13,18 @@ public class ContaBancaria {
     double saldo;
     boolean especial;
     double limiteEspecial;
+    String tipo; //Corrente ou poupança
 
-    public ContaBancaria(int numero, double saldo, boolean especial, double limite) {
+    public ContaBancaria(double saldo, String tipo){
+        this.saldo = saldo;
+        this.tipo = tipo;
+    }
+    public ContaBancaria(int numero, double saldo, boolean especial, double limite, String tipo) {
         this.numero = numero;
         this.saldo = saldo;
         this.especial = especial;
         this.limiteEspecial = limite;
+        this.tipo = tipo;
     }
 
     ContaBancaria() {
