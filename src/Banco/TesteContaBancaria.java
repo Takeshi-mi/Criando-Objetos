@@ -19,11 +19,11 @@ public class TesteContaBancaria {
     c1.especial = true;
     c1.limiteEspecial = 100;
     c1.deposito(200);
-    c1.saque(250);
+    c1.saque(310);
     c1.consultarSaldo();
     
-    ContaBancaria c2 = new ContaBancaria(1,100,false,50);
-    c2.saque(110);
+   // ContaBancaria c2 = new ContaBancaria(1,100,false,50);
+    //c2.saque(110);
     
     
             }

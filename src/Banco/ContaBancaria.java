@@ -30,7 +30,7 @@ public class ContaBancaria {
         if(saldo<valor){
             if(especial){
                 if((saldo+limiteEspecial)<valor){
-                System.out.printf("Saldo insuficiente.\nSeu saldo atual é R$%.2f. Seu limite atual é R$%.2f\n",saldo, limiteEspecial);
+                System.out.printf("Saldo insuficiente. Transação não realizada.\n");
                 
                  }else{
                    System.out.printf("Saque de %.2f realizado com sucesso \n",valor);
