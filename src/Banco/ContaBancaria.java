@@ -13,28 +13,34 @@ public class ContaBancaria {
     double saldo;
     boolean especial;
     double limiteEspecial;
-    String tipo; //Corrente ou poupança
+    boolean corrente; //1 = Corrente, 2 = poupança
 
-    public ContaBancaria(double saldo, String tipo){
+    public ContaBancaria(double saldo, boolean corrente){
         this.saldo = saldo;
-        this.tipo = tipo;
+        this.corrente = corrente;
     }
-    public ContaBancaria(int numero, double saldo, boolean especial, double limite, String tipo) {
+    public ContaBancaria(int numero, double saldo, boolean especial, double limite, boolean corrente) {
         this.numero = numero;
         this.saldo = saldo;
         this.especial = especial;
         this.limiteEspecial = limite;
-        this.tipo = tipo;
+        this.corrente = corrente;
     }
-
+    // construtor Padrão
     ContaBancaria() {
+        this.corrente = true; // corrente
+        this.especial = false;
+        
     }
     
     
     
     void saque(double valor){
         if(saldo<valor){
-            if(especial){
+            if(corrente==true){
+                System.out.println("Não é possível realizar a operação. Valor de saque maior que o saldo. Usuário Conta Corrente não tem limite especial. ");
+            }
+            else if(especial){
                 if((saldo+limiteEspecial)<valor){
                 System.out.printf("Saldo insuficiente. Transação não realizada.\n");
                 
@@ -56,9 +62,17 @@ public class ContaBancaria {
             System.out.printf("Saque de %.2f realizado com sucesso.\n",valor);
         }
     }
-    
+    // Última questão. Exercício 1
     void deposito(double valor){
-        saldo += valor;
+        if (corrente == true){
+            if (valor > 1000){
+                System.out.println("Conta Corrente. Para sua segurança não é possível fazer depósitos acima de R$1000,00");
+            }else{
+                saldo += valor;
+            }
+        }else{
+            saldo += valor;
+        }
     }
     void consultarSaldo(){
         System.out.println("Seu saldo atual é de R$"+saldo);
